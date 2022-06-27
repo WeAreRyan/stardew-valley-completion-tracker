@@ -1,4 +1,31 @@
 <%- include('../partials/header') %>
 
+<form id="add-save-form" method="POST" action="/saves">
+    <label>Add New Save:</label>
+    <input type="text" name="saveName"></textarea>
+    <input type="checkbox" name="community">
+    <label>Community Upgrades</label>
+    <input type="checkbox" name="items">
+    <label>Items Sold</label>
+    <input type="checkbox" name="buildings">
+    <label>Obelisks Built</label>
+    <input type="checkbox" name="monsters">
+    <label>Monster Slayer Completion</label>
+    <input type="checkbox" name="friendship">
+    <label>Maximum Friendship</label>
+    <input type="checkbox" name="skills">
+    <label>Maximised All Skills</label>
+    <input type="checkbox" name="stardrops">
+    <label>All Stardrops Collected</label>
+    <input type="checkbox" name="recipes">
+    <label>All Cooking Recipes Made</label>
+    <input type="checkbox" name="Crafting">
+    <label>All Items Crafted</label>
+    <input type="checkbox" name="fish">
+    <label>All Fish Caught</label>
+    <input type="checkbox" name="wallnuts">
+    <label>All Goldend Wallnuts Collected</label>
+    <input type="submit" value="Add New Game Save">
+  </form>
 
 <%- include('../partials/footer') %>

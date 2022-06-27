@@ -1,4 +1,20 @@
-<%- include('../partials/header') %>
-
-
-<%- include('../partials/footer') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title><%= title %></title>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <% if (user) { %>
+        <a href="/flights">Saves</a>
+        <a href="/flights/new">Add New Flight</a>
+        <a href="/tickets">View All Tickets</a>
+        <% } else { %>
+            <a href="/auth/google" class="login"></a>LOG IN&nbsp;<img src=""></a>
+            <% } %>
+      </div>
