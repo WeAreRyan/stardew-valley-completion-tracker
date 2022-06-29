@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<% gameSaves.forEach(function(save) { %>
+<div>
+  <% if(gameSave) { %>
+    <div> Filename: <%= gameSave.saveName %> </div>
+    <div> Completion Path(Community/Joja): <%= gameSave.completionPath %> </div>
+    <div><a href="/gameSaves/<%= gameSave.id %>">Save File Details</a></div>
+    <%  } %>
+<% }) %>
+</div>
+<a href="/gamesaves/new">New Save</a>
+
+<%- include('../partials/footer') %>

@@ -1,13 +1,19 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const saveSchema = new Schema({
+const gameSaveSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId, ref: 'User', required: true
     },
     saveName: {
         type: String, required: true
     },
+    // Path true == Joja route, false == Community route
+    completionPath: {
+        type: String, 
+        enum: ['Community', "Joja"], 
+        required: true
+    }, 
     community: {
         type: Boolean
     }, 
@@ -17,7 +23,7 @@ const saveSchema = new Schema({
     buildings: {
         type: Boolean
     }, 
-    monsers: {
+    monsters: {
         type: Boolean
     },
     friendship: {
@@ -29,19 +35,19 @@ const saveSchema = new Schema({
     stardrops: {
         type: Boolean
     },
-    Recipes: {
+    recipes: {
         type: Boolean
     }, 
-    Crafting: {
+    crafting: {
         type: Boolean, 
     }, 
-    Fish: {
+    fish: {
         type: Boolean
     }, 
-    Wallnuts: {
+    wallnuts: {
         type: Boolean
     }
     
 })
 
-module.exports = mongoose.model('Save', saveSchema)
+module.exports = mongoose.model('GameSave', gameSaveSchema)

@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<div>Save Name: </div>
+<div><%= gameSave.saveName %></div>
+<div>Completion Path: </div>
+<div><%= gameSave.completionPath %></div>
+<div>Community Upgrades: </div>
+<div><%= gameSave.community ? 'Complete' : 'In Progress' %></div>
+<div>All items sold: </div>
+<div><%= gameSave.items ? 'Complete' : 'In Progress' %></div>
+<div>All Obelisks and Golden Clock Built: </div>
+<div><%= gameSave.buildings ? 'Complete' : 'In Progress' %></div>
+<div>Monster Slayer Goals: </div>
+<div><%= gameSave.monsters ? 'Complete' : 'In Progress' %></div>
+<div>All characters affection maxed: </div>
+<div><%= gameSave.friendship ? 'Complete' : 'In Progress' %></div>
+<div>All skills at max: </div>
+<div><%= gameSave.skills ? 'Complete' : 'In Progress' %></div>
+<div>All Stardrops Collected: </div>
+<div><%= gameSave.stardrops ? 'Complete' : 'In Progress' %></div>
+<div>All Recipes Cooked: </div>
+<div><%= gameSave.recipes ? 'Complete' : 'In Progress' %></div>
+<div>All Crafting items created: </div>
+<div><%= gameSave.crafting ? 'Complete' : 'In Progress' %></div>
+<div>All Fish caught: </div>
+<div><%= gameSave.fish ? 'Complete' : 'In Progress' %></div>
+<div>All Golden Wallnuts collected: </div>
+<div><%= save.Wallnuts ? 'Complete' : 'In Progress' %></div>
+
+
+
+<%- include('../partials/footer') %>

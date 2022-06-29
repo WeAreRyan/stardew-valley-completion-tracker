@@ -1,8 +1,16 @@
 <%- include('../partials/header') %>
 
-<form id="add-save-form" method="POST" action="/saves">
+<form id="add-save-form" method="POST" action="/gameSaves">
     <label>Add New Save:</label>
     <input type="text" name="saveName"></textarea>
+    <label>Completion Path(Community/Joja)</label>.
+    <select name="completionPath">
+        <option value="Community">Community Center</option>
+        <option value="Joja">JojaMart</option>
+    </select>
+
+
+
     <input type="checkbox" name="community">
     <label>Community Upgrades</label>
     <input type="checkbox" name="items">
@@ -19,7 +27,7 @@
     <label>All Stardrops Collected</label>
     <input type="checkbox" name="recipes">
     <label>All Cooking Recipes Made</label>
-    <input type="checkbox" name="Crafting">
+    <input type="checkbox" name="crafting">
     <label>All Items Crafted</label>
     <input type="checkbox" name="fish">
     <label>All Fish Caught</label>

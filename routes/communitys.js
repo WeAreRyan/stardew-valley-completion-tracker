@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var savesCtrl = require('../controllers/saves');
+var communitysCtrl = require('../controllers/communitys');
 const isLoggedIn = require('../config/auth');
 
 
-router.get('/', savesCtrl.index);
+router.get('/', communitysCtrl.index);
 
 module.exports = router;
