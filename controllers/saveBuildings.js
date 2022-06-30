@@ -1,4 +1,4 @@
-const GameSave = require('../models/GameSave');
+const GameSave = require('../models/gameSave');
 
 module.exports = {
 
