@@ -59,7 +59,6 @@ async function deletegameSave(req, res, next) {
     }
 }
 
-
 function update(req, res) {
     req.body.user = req.user._id;
     req.body.community = !!req.body.community;
@@ -74,22 +73,25 @@ function update(req, res) {
     req.body.fish = !!req.body.fish;
     req.body.walnuts = !!req.body.walnuts;
 
-    gameSave.findOneAndUpdate({_id: req.params.id}, 
-        req.body, 
-        {new: true},
-        
-        function(err, gameSave) {
-        if (err || !gameSave) {
-            console.log(err);
-            return res.redirect('/gameSaves')
-        }
-        res.redirect(`gameSaves/${gameSave._id}`);
+    GameSave.findOneAndUpdate(
+      {_id: req.params.id},
+      req.body,
+      {new: true},
+      function(err, gameSave) {
+        if (err || !gameSave) return res.redirect('/gameSave');
+        res.redirect(`/gameSaves/${gameSave._id}/`);
       }
     );
   }
 
 
-// async function update(req, res, next) {
+
+
+
+
+
+
+// function update(req, res) {
 //     req.body.user = req.user._id;
 //     req.body.community = !!req.body.community;
 //     req.body.items = !!req.body.items;
@@ -103,20 +105,38 @@ function update(req, res) {
 //     req.body.fish = !!req.body.fish;
 //     req.body.walnuts = !!req.body.walnuts;
 
-//     try {
-//         gameSave.findOneAndUpdate({_id: req.params.id}), 
-//     req.body, 
-//     {new: true}, 
-//     function(err, gaveSave) {
+//     gameSave.findByIdAndUpdate({_id: req.params.id}, 
+//         req.body, 
+//         {new: true},
+        
+//         function(err, gameSave) {
 //         if (err || !gameSave) {
 //             console.log(err);
 //             return res.redirect('/gameSaves')
-//         } else {
-//             res.redirect(`gameSaves/${gameSave._id}`)
-//         } catch (err) {
-//             console.log(err)
 //         }
-//     }
+//         res.redirect(`gameSaves/${gameSave._id}`);
+//       }
+//     );
+//   }
+
+
+//   function update(req, res) {
+//     console.log(req.params.id);
+//     req.body.user = req.user._id;
+//     req.body.community = !!req.body.community;
+//     req.body.items = !!req.body.items;
+//     req.body.buildings = !!req.body.buildings;
+//     req.body.monsters = !!req.body.monsters;
+//     req.body.friendship = !!req.body.friendship;
+//     req.body.skills = !!req.body.skills;
+//     req.body.stardrops = !!req.body.stardrops;
+//     req.body.recipes = !!req.body.recipes;
+//     req.body.crafting = !!req.body.Crafting;
+//     req.body.fish = !!req.body.fish;
+//     req.body.walnuts = !!req.body.walnuts;
+//     gameSave.findByIdAndUpdate(req.params.id, function(err, gameSave) {
+//         console.log(gameSave)
+//     })
 // }
 
 
