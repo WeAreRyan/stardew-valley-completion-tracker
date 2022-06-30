@@ -16,7 +16,7 @@
   </title>
 </head>
 
-<body      style="background-image: url('https://i.imgur.com/gpjsUjm.jpg');
+<body style="background-image: url('https://i.imgur.com/gpjsUjm.jpg');
 height: 100vh">
   <!-- JavaScript Bundle with Popper BOOTSTRAPS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -29,9 +29,11 @@ height: 100vh">
         <a class="nav-item nav-link active" href="/">Home </a>
         <% if (user) { %>
           <a class="nav-item nav-link" href="/gameSaves">GameSaves</a>
+          <a class="nav-item nav-link" href="https://stardewvalleywiki.com/Stardew_Valley_Wiki" target="_blank">WIKI</a>
           <a class="nav-item nav-link justify-content-end" href="/logout">LOGOUT</a>
 
           <% } else { %>
+            <a class="nav-item nav-link" href="https://stardewvalleywiki.com/Stardew_Valley_Wiki" target="_blank">WIKI</a>
             <a class="nav-item nav-link justify-content-end" href="/auth/google">LOGIN</a>
             <% } %>
       </div>
