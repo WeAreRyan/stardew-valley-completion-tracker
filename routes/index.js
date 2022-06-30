@@ -22,9 +22,11 @@ router.get('/oauth2callback', passport.authenticate(
   }
 ));
 
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
+router.get('/logout', function(req, res) {
+  req.logout(function(err) {
+    if(err) console.log(err)
+    res.redirect('/')
+  })
+})
 
 module.exports = router;

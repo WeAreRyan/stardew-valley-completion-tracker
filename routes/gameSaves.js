@@ -1,15 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var gameSavesCtrl = require('../controllers/gameSaves');
+const gameSavesCtrl = require('../controllers/gameSaves');
 const isLoggedIn = require('../config/auth');
 
 
 router.get('/', gameSavesCtrl.index);
 router.get('/new', gameSavesCtrl.new);
+router.get('/:id/edit', gameSavesCtrl.edit);
 router.get('/:id', gameSavesCtrl.show);
 
-router.post('/', gameSavesCtrl.create);
 
-// router.delete('/:id', savesCtrl.delete);
+router.post('/', gameSavesCtrl.create);
+router.post('/edit', gameSavesCtrl.update);
+
+router.delete('/:id', gameSavesCtrl.delete);
 
 module.exports = router;

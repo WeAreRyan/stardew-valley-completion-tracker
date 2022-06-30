@@ -1,47 +1,71 @@
 const GameSave = require('../models/GameSave');
 
 module.exports = {
-    index, 
-    create, 
-    new: newGameSave, 
-    show, 
-    // delete: deletegameSave, 
+    index,
+    create,
+    new: newGameSave,
+    show,
+    delete: deletegameSave,
+    edit, 
+    update, 
 }
 
-// function index(req, res) {
-//     GameSave.find({}, function(err, gameSaves) {
-//       res.render('gameSaves/index', { title: 'All Save Files', gameSaves });
-//     });
-//   }
-  function index(req, res) {
-    GameSave.find({}, function(err, gameSaves) {
-      res.render('gameSaves/index', { title: 'All Save Files', gameSaves });
-    });
-  }
+
+function index(req, res) {
+    if(!req.user) {
+        res.redirect('/auth/google')
+    } else {
+    GameSave.find({}, function (err, gameSaves) {
+        res.render('gameSaves/index', { title: 'All Save Files', gameSaves });
+    })};
+}
 
 function newGameSave(req, res) {
-    res.render('gameSaves/new', { title: 'New Save File'});
-}
+    if(!req.user) {
+        res.redirect('/auth/google')
+    } else {
+    res.render('gameSaves/new', { title: 'New Save File' });
+}}
 
 function show(req, res) {
-    gameSave = GameSave.findById(req.params.id, function(err, gameSave){
-        res.render('gameSaves/show', { title: 'Save File Details'})
-        console.log(gameSave)
+    if(!req.user) {
+        res.redirect('/auth/google')
+    } else {
+    gameSave = GameSave.findById(req.params.id, function (err, gameSave) {
+        res.render('gameSaves/show', { title: 'Save File Details', gameSave })
         return gameSave;
-    })
+    })}
 }
 
-// async function deleteSave(req, res) {
-//     try {
-//         const save = await Save.findOne({ 'saves._id' : req.params.id, 'saves.user' : req})
-//         if(!save) return res.redirect('/saves')
-//         save.remove(req.params.id)
-//         await save.save()
-//         res.redirect(`/saves/${save._id}`)
-//     } catch(err) {
-//         return next(err)
-//     }
-// }
+function edit(req, res) {
+    if(!req.user) {
+        res.redirect('/auth/google')
+    } else {
+    GameSave.findOne(req.params.id, function(err, gameSave) {
+        console.log(req.body)
+      if (err || !gameSave) return res.redirect('/gameSaves');
+      res.render('gameSave/edit', {gameSave});
+    })};
+  }
+
+
+
+async function deletegameSave(req, res, next) {
+    try {
+        const gameSave = await GameSave.findOne({ 'gameSaves._id': req.params.id, 'gameSaves.user': req })
+        if (!gameSave) return res.redirect('/gameSaves')
+        gameSave.remove(req.params.id)
+        await gameSave.save()
+        res.redirect('/gameSaves/')
+    } catch (err) {
+        return next(err)
+    }
+}
+
+
+function update(req, res, next) {
+    const id = req.body.id
+}
 
 
 function create(req, res) {
@@ -56,11 +80,11 @@ function create(req, res) {
     req.body.recipes = !!req.body.recipes;
     req.body.crafting = !!req.body.Crafting;
     req.body.fish = !!req.body.fish;
-    req.body.wallnuts = !!req.body.wallnuts;
+    req.body.walnuts = !!req.body.walnuts;
     const gameSave = new GameSave(req.body);
     console.log(req.body)
-    gameSave.save(function(err) {
-        if(err) {
+    gameSave.save(function (err) {
+        if (err) {
             console.log(err)
         }
     })

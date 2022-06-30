@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
-<form id="add-save-form" method="POST" action="/gameSaves">
+  <form id="add-save-form" method="POST" action="/gameSaves">
     <label>Add New Save:</label>
-    <input type="text" name="saveName"></textarea>
+    <input type="text" name="saveName" required></textarea>
     <label>Completion Path(Community/Joja)</label>.
     <select name="completionPath">
-        <option value="Community">Community Center</option>
-        <option value="Joja">JojaMart</option>
+      <option value="Community">Community Center</option>
+      <option value="Joja">JojaMart</option>
     </select>
 
 
@@ -31,9 +31,9 @@
     <label>All Items Crafted</label>
     <input type="checkbox" name="fish">
     <label>All Fish Caught</label>
-    <input type="checkbox" name="wallnuts">
-    <label>All Goldend Wallnuts Collected</label>
+    <input type="checkbox" name="walnuts">
+    <label>All Goldend Walnuts Collected</label>
     <input type="submit" value="Add New Game Save">
   </form>
 
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>

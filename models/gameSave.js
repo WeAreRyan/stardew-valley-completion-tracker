@@ -1,6 +1,43 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const gameSaveCommentSchema = new Schema({
+    content: {
+        type: String, required: true
+    }, 
+    user: {
+        type: Schema.Types.ObjectId, ref: 'User', required: true
+    }, 
+    userName: String,
+    userAvatar: String,
+}, {
+    timestamps: true
+});
+
+const buildingSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId, ref: 'User', required: true
+    }, 
+    earthObelisk: {
+        type: Boolean
+    }, 
+    waterObelisk: {
+        type: Boolean
+    }, 
+    desertObelisk: {
+        type: Boolean
+    }, 
+    islandObelisk: {
+        type: Boolean
+    }, 
+    goldClock: {
+        type: Boolean
+    }, 
+});
+
+
+
+
 const gameSaveSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId, ref: 'User', required: true
@@ -8,7 +45,6 @@ const gameSaveSchema = new Schema({
     saveName: {
         type: String, required: true
     },
-    // Path true == Joja route, false == Community route
     completionPath: {
         type: String, 
         enum: ['Community', "Joja"], 
@@ -44,10 +80,11 @@ const gameSaveSchema = new Schema({
     fish: {
         type: Boolean
     }, 
-    wallnuts: {
+    walnuts: {
         type: Boolean
-    }
-    
+    }, 
+    gameSaveComments: [gameSaveCommentSchema], 
+    community: [buildingSchema], 
 })
 
 module.exports = mongoose.model('GameSave', gameSaveSchema)
