@@ -5,6 +5,4 @@ const saveBuildingsCtrl = require('../controllers/gameSaveComments')
 const isLoggedIn = require('../config/auth');
 
 
-
-
 module.exports = router;

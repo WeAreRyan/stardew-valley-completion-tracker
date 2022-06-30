@@ -54,14 +54,14 @@
     </div>
 </br>
 
-<a href="/gameSaves/ <%= gameSave._id %> /edit">Edit Save</a>
+<a href="/gameSaves/<%= gameSave._id %>/edit">Edit Save</a>
 
 <br>
 <h2>Comments</h2>
 <% gameSave.gameSaveComments.forEach(function(comment) { %>
     <div> Date: <%= comment.createdAt %> </div>
     <div> <%= comment.content %> </div>
-    <form action="/gameSaveComments/<%= comment._id %>?_method=DELETE" method="POST">
+    <form id="delete-comment-form" action="/gameSaveComments/<%= comment._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
         </form>
 <% }) %>

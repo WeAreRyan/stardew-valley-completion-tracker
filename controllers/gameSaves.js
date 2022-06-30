@@ -37,33 +37,20 @@ function show(req, res) {
     })}
 }
 
-
-function edit(req, res) {
-    gameSave.findOne({_id: req.params.id, userRecommending: req.user._id}, function(err, gameSave) {
-        console.log('hello')
-      if (err || !gameSave) return res.redirect('/gameSaves');
-      console.log(gameSave)
-      res.render(`gameSaves/edit`, {gameSave});
-    });
-  }
-
-
-// function edit(req, res) {
-//     if(!req.user) {
-//         res.redirect('/auth/google')
-//     } else {
-//     gameSave = GameSave.findById(req.params.id, function(err, gameSave) {
-//         console.log(req.params.id)
-//     res.render(`gameSaves/edit`, { title: 'Save File Details', gameSave })
-//     })
-// }
-// }
+async function edit(req, res) {
+    if(!req.user) {
+        res.redirect('/auth/google')
+    } else {
+    GameSave.findById(req.params.id, function(err, gameSave) {
+    res.render(`gameSaves/edit`, { title: 'Save File Details', gameSave })
+    })}
+}
 
 
 async function deletegameSave(req, res, next) {
     try {
         const gameSave = await GameSave.findOne({ 'gameSaves._id': req.params.id, 'gameSaves.user': req })
-        if (!gameSave) return res.redirect('/gameSaves')
+        if (!gameSave) return res.redirect('/gameSaves/')
         gameSave.remove(req.params.id)
         await gameSave.save()
         res.redirect('/gameSaves/')
@@ -73,16 +60,16 @@ async function deletegameSave(req, res, next) {
 }
 
 
-function update(req, res) {
-    gameSave.findOneAndUpdate(
-      {_id: req.params.id, userRecommending: req.user._id},
-      req.body,
-      {new: true},
-      function(err, gameSave) {
-        if (err || !gameSave) return res.redirect('/gameSaves');
-        res.redirect(`gameSaves/${gameSave._id}`);
-      }
-    );
+// function update(req, res) {
+//     gameSave.findOneAndUpdate({_id: req.params.id, },req.body,{new: true},function(err, gameSave) {
+//         if (err || !gameSave) return res.redirect('/gameSaves');
+//         res.redirect(`gameSaves/${gameSave._id}`);
+//       }
+//     );
+//   }
+
+  function update(req, res, next) {
+    console.log(err)
   }
 
 

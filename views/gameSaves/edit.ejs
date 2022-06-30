@@ -1,11 +1,41 @@
 <%- include('../partials/header') %>
 
-GameSave edit page
 
-<div class="container"></div>
-    <div class="row">
-        <div class="col-sm-3">Save Name: </div>
-        <div class="col-sm-3"> <%= gameSave.saveName %></div>
-    </div>
-</div>
+<h2> Game Save Name: <%= gameSave.saveName %> </h2>
+<form action="/gameSave/<%= gameSave._id %>?_method=PUT" method="POST">
+    <label>Add New Save:</label>
+    <input type="text" name="saveName" required></textarea>
+    <label>Completion Path(Community/Joja)</label>.
+    <select name="completionPath">
+      <option value="Community">Community Center</option>
+      <option value="Joja">JojaMart</option>
+    </select>
+
+
+
+    <input type="checkbox" name="community">
+    <label>Community Upgrades</label>
+    <input type="checkbox" name="items">
+    <label>Items Sold</label>
+    <input type="checkbox" name="buildings">
+    <label>Obelisks Built</label>
+    <input type="checkbox" name="monsters">
+    <label>Monster Slayer Completion</label>
+    <input type="checkbox" name="friendship">
+    <label>Maximum Friendship</label>
+    <input type="checkbox" name="skills">
+    <label>Maximised All Skills</label>
+    <input type="checkbox" name="stardrops">
+    <label>All Stardrops Collected</label>
+    <input type="checkbox" name="recipes">
+    <label>All Cooking Recipes Made</label>
+    <input type="checkbox" name="crafting">
+    <label>All Items Crafted</label>
+    <input type="checkbox" name="fish">
+    <label>All Fish Caught</label>
+    <input type="checkbox" name="walnuts">
+    <label>All Goldend Walnuts Collected</label>
+    <input type="submit" value="Update Save File">
+  </form>
+
 <%- include('../partials/footer') %>

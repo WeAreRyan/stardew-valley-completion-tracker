@@ -9,10 +9,9 @@ router.get('/new', gameSavesCtrl.new);
 router.get('/:id', gameSavesCtrl.show);
 router.get('/:id/edit', gameSavesCtrl.edit);
 
-
-
 router.post('/', gameSavesCtrl.create);
-router.post('/edit', gameSavesCtrl.update);
+
+router.put('/:id', gameSavesCtrl.update);
 
 router.delete('/:id', gameSavesCtrl.delete);
 
