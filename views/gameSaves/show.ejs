@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 </br>
-<div class="container bg-info"></div>
+<div class="container bg-info">
     <div class="row">
         <div class="col-sm-3">Save Name: </div>
         <div class="col-sm-3"> <%= gameSave.saveName %></div>
@@ -82,6 +82,7 @@
     <form action="/gameSaves/<%= gameSave._id %>?_method=DELETE" method="POST">
         <button type="submit" class="btn btn-danger">DELETE GAMESAVE DATA</button>
     </form>
+    <br>
 
 
     <%- include('../partials/footer') %>
