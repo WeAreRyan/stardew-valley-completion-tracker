@@ -6,8 +6,9 @@ const isLoggedIn = require('../config/auth');
 
 router.get('/', gameSavesCtrl.index);
 router.get('/new', gameSavesCtrl.new);
-router.get('/:id/edit', gameSavesCtrl.edit);
 router.get('/:id', gameSavesCtrl.show);
+router.get('/:id/edit', gameSavesCtrl.edit);
+
 
 
 router.post('/', gameSavesCtrl.create);

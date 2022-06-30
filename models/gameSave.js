@@ -14,7 +14,7 @@ const gameSaveCommentSchema = new Schema({
     timestamps: true
 });
 
-const buildingSchema = new Schema({
+const saveBuildingSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId, ref: 'User', required: true
     }, 
@@ -33,6 +33,10 @@ const buildingSchema = new Schema({
     goldClock: {
         type: Boolean
     }, 
+    userName: String,
+    userAvatar: String,
+}, {
+    timestamps: true
 });
 
 
@@ -84,7 +88,7 @@ const gameSaveSchema = new Schema({
         type: Boolean
     }, 
     gameSaveComments: [gameSaveCommentSchema], 
-    community: [buildingSchema], 
+    saveBuildings: [saveBuildingSchema], 
 })
 
 module.exports = mongoose.model('GameSave', gameSaveSchema)

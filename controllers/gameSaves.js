@@ -37,17 +37,27 @@ function show(req, res) {
     })}
 }
 
+
 function edit(req, res) {
-    if(!req.user) {
-        res.redirect('/auth/google')
-    } else {
-    GameSave.findOne(req.params.id, function(err, gameSave) {
-        console.log(req.body)
+    gameSave.findOne({_id: req.params.id, userRecommending: req.user._id}, function(err, gameSave) {
+        console.log('hello')
       if (err || !gameSave) return res.redirect('/gameSaves');
-      res.render('gameSave/edit', {gameSave});
-    })};
+      console.log(gameSave)
+      res.render(`gameSaves/edit`, {gameSave});
+    });
   }
 
+
+// function edit(req, res) {
+//     if(!req.user) {
+//         res.redirect('/auth/google')
+//     } else {
+//     gameSave = GameSave.findById(req.params.id, function(err, gameSave) {
+//         console.log(req.params.id)
+//     res.render(`gameSaves/edit`, { title: 'Save File Details', gameSave })
+//     })
+// }
+// }
 
 
 async function deletegameSave(req, res, next) {
@@ -63,9 +73,17 @@ async function deletegameSave(req, res, next) {
 }
 
 
-function update(req, res, next) {
-    const id = req.body.id
-}
+function update(req, res) {
+    gameSave.findOneAndUpdate(
+      {_id: req.params.id, userRecommending: req.user._id},
+      req.body,
+      {new: true},
+      function(err, gameSave) {
+        if (err || !gameSave) return res.redirect('/gameSaves');
+        res.redirect(`gameSaves/${gameSave._id}`);
+      }
+    );
+  }
 
 
 function create(req, res) {
