@@ -2,7 +2,7 @@
 
 
 <h2> Game Save Name: <%= gameSave.saveName %> </h2>
-<form action="/gameSave/<%= gameSave._id %>?_method=PUT" method="POST">
+<form action="/gameSaves/<%= gameSave._id %>?_method=PUT" method="POST">
     <label>Add New Save:</label>
     <input type="text" name="saveName" required></textarea>
     <label>Completion Path(Community/Joja)</label>.

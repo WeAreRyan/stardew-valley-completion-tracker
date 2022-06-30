@@ -60,17 +60,65 @@ async function deletegameSave(req, res, next) {
 }
 
 
-// function update(req, res) {
-//     gameSave.findOneAndUpdate({_id: req.params.id, },req.body,{new: true},function(err, gameSave) {
-//         if (err || !gameSave) return res.redirect('/gameSaves');
-//         res.redirect(`gameSaves/${gameSave._id}`);
-//       }
-//     );
-//   }
+function update(req, res) {
+    req.body.user = req.user._id;
+    req.body.community = !!req.body.community;
+    req.body.items = !!req.body.items;
+    req.body.buildings = !!req.body.buildings;
+    req.body.monsters = !!req.body.monsters;
+    req.body.friendship = !!req.body.friendship;
+    req.body.skills = !!req.body.skills;
+    req.body.stardrops = !!req.body.stardrops;
+    req.body.recipes = !!req.body.recipes;
+    req.body.crafting = !!req.body.Crafting;
+    req.body.fish = !!req.body.fish;
+    req.body.walnuts = !!req.body.walnuts;
 
-  function update(req, res, next) {
-    console.log(err)
+    gameSave.findOneAndUpdate({_id: req.params.id}, 
+        req.body, 
+        {new: true},
+        
+        function(err, gameSave) {
+        if (err || !gameSave) {
+            console.log(err);
+            return res.redirect('/gameSaves')
+        }
+        res.redirect(`gameSaves/${gameSave._id}`);
+      }
+    );
   }
+
+
+// async function update(req, res, next) {
+//     req.body.user = req.user._id;
+//     req.body.community = !!req.body.community;
+//     req.body.items = !!req.body.items;
+//     req.body.buildings = !!req.body.buildings;
+//     req.body.monsters = !!req.body.monsters;
+//     req.body.friendship = !!req.body.friendship;
+//     req.body.skills = !!req.body.skills;
+//     req.body.stardrops = !!req.body.stardrops;
+//     req.body.recipes = !!req.body.recipes;
+//     req.body.crafting = !!req.body.Crafting;
+//     req.body.fish = !!req.body.fish;
+//     req.body.walnuts = !!req.body.walnuts;
+
+//     try {
+//         gameSave.findOneAndUpdate({_id: req.params.id}), 
+//     req.body, 
+//     {new: true}, 
+//     function(err, gaveSave) {
+//         if (err || !gameSave) {
+//             console.log(err);
+//             return res.redirect('/gameSaves')
+//         } else {
+//             res.redirect(`gameSaves/${gameSave._id}`)
+//         } catch (err) {
+//             console.log(err)
+//         }
+//     }
+// }
+
 
 
 function create(req, res) {
@@ -87,7 +135,6 @@ function create(req, res) {
     req.body.fish = !!req.body.fish;
     req.body.walnuts = !!req.body.walnuts;
     const gameSave = new GameSave(req.body);
-    console.log(req.body)
     gameSave.save(function (err) {
         if (err) {
             console.log(err)
