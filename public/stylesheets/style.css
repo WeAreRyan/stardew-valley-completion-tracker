@@ -18,3 +18,10 @@ a {
   height: 30px;
 }
 
+body {
+  background-color: #b3ffff;
+}
+
+#new-gameSave-form {
+  background-color: aqua;
+}

@@ -1,39 +1,114 @@
 <%- include('../partials/header') %>
 
+<br>
+<br>
+<div id="new-gameSave-form">
   <form id="add-save-form" method="POST" action="/gameSaves">
-    <label>Add New Save:</label>
-    <input type="text" name="saveName" required></textarea>
-    <label>Completion Path(Community/Joja)</label>.
-    <select name="completionPath">
-      <option value="Community">Community Center</option>
-      <option value="Joja">JojaMart</option>
-    </select>
+    <div class="form-group">
+      <label for="saveName">Add New Save: </label>
+      <input type="text" class="'form-control" name="saveName" required>
+    </div>
+    <div class="form-row align-items-center">
+      <div class="col-auto my-1">
+        <label class="mr-sm-2">Completion Path(Community/Joja)</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="completionPath">
+          <option value="Community">Community Center</option>
+          <option value="Joja">JojaMart</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="community">
+        <label class="form-check-label" for="community">Community Upgrades</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="items">
+        <label class="form-check-label" for="items">All Items Sold</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="buildings">
+        <label class="form-check-label" for="buildings">Obelisks & Golden Clock built</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="monsters">
+        <label class="form-check-label" for="monsters">Monster Slayer Tasks Completed</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="friendship">
+        <label class="form-check-label" for="friendship">Maximum Friendship with all Villagers</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="skills">
+        <label class="form-check-label" for="skills">Maximum Level on all Skills</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="stardrops">
+        <label class="form-check-label" for="stardrops">All Stardrops Collected</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="recipes">
+        <label class="form-check-label" for="recipes">All Recipes Cooked</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="crafting">
+        <label class="form-check-label" for="crafting">All Items Crafted</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="fish">
+        <label class="form-check-label" for="fish">All Fish Caught</label>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" name="walnuts">
+        <label class="form-check-label" for="walnuts">All Golden Walnuts Collected</label>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      </div>
+    </form>
+  </div>
 
 
 
-    <input type="checkbox" name="community">
-    <label>Community Upgrades</label>
-    <input type="checkbox" name="items">
-    <label>Items Sold</label>
-    <input type="checkbox" name="buildings">
-    <label>Obelisks Built</label>
-    <input type="checkbox" name="monsters">
-    <label>Monster Slayer Completion</label>
-    <input type="checkbox" name="friendship">
-    <label>Maximum Friendship</label>
-    <input type="checkbox" name="skills">
-    <label>Maximised All Skills</label>
-    <input type="checkbox" name="stardrops">
-    <label>All Stardrops Collected</label>
-    <input type="checkbox" name="recipes">
-    <label>All Cooking Recipes Made</label>
-    <input type="checkbox" name="crafting">
-    <label>All Items Crafted</label>
-    <input type="checkbox" name="fish">
-    <label>All Fish Caught</label>
-    <input type="checkbox" name="walnuts">
-    <label>All Goldend Walnuts Collected</label>
-    <input type="submit" value="Add New Game Save">
-  </form>
+
+
+
+
+
+
+
+      <!-- <label class="form-check-label">Add New Save: </label>
+      <input class="form-check-input" type="text" name="saveName" required></textarea>
+      <label>Completion Path(Community/Joja)</label>.
+      <select name="completionPath">
+        <option value="Community">Community Center</option>
+        <option value="Joja">JojaMart</option>
+      </select>
+
+
+
+      <input type="checkbox" name="community">
+      <label>Community Upgrades</label>
+      <input type="checkbox" name="items">
+      <label>Items Sold</label>
+      <input type="checkbox" name="buildings">
+      <label>Obelisks Built</label>
+      <input type="checkbox" name="monsters">
+      <label>Monster Slayer Completion</label>
+      <input type="checkbox" name="friendship">
+      <label>Maximum Friendship</label>
+      <input type="checkbox" name="skills">
+      <label>Maximised All Skills</label>
+      <input type="checkbox" name="stardrops">
+      <label>All Stardrops Collected</label>
+      <input type="checkbox" name="recipes">
+      <label>All Cooking Recipes Made</label>
+      <input type="checkbox" name="crafting">
+      <label>All Items Crafted</label>
+      <input type="checkbox" name="fish">
+      <label>All Fish Caught</label>
+      <input type="checkbox" name="walnuts">
+      <label>All Golden Walnuts Collected</label>
+      <input type="submit" value="Add New Game Save">
+  </form> -->
 
   <%- include('../partials/footer') %>

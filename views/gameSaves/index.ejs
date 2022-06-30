@@ -1,16 +1,31 @@
 <%- include('../partials/header') %>
 
   <% gameSaves.forEach(function(gameSave) { %>
-    <div>
+    
+    <div class="container bg-info">
+      <br>
       <% if(user && user._id.equals(gameSave.user)) { %>
-        <div> Filename: <%= gameSave.saveName %>
+        <div class="row">
+          <div class="col-sm-3"> Filename: </div> 
+          <div class="col-sm-3"><%= gameSave.saveName %></div>
         </div>
-        <div> Completion Path(Community/Joja): <%= gameSave.completionPath %>
+        <div class="row">
+          <div class="col-sm-3"> Completion Path(Community/Joja): </div>
+          <div class="col-sm-3"><%= gameSave.completionPath %></div>
         </div>
-        <div><a href="/gameSaves/<%= gameSave.id %>">Save File Details</a></div>
+        <div class="row">
+          <div class="col-sm-3">
+            <a href="/gameSaves/<%= gameSave.id %>">Save File Details</a>
+          </div>
+
+
         <% } %>
           <% }) %>
     </div>
-    <a href="/gamesaves/new">New Save</a>
+    <br>
+    <div class="col-auto my-1">
+      <a href="/gamesaves/new"><button class="btn btn-primary">Add New Save File</button></a>
+
+    </div>
 
     <%- include('../partials/footer') %>

@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
-<div class="container"></div>
+</br>
+<div class="container bg-info"></div>
     <div class="row">
         <div class="col-sm-3">Save Name: </div>
         <div class="col-sm-3"> <%= gameSave.saveName %></div>
@@ -54,7 +55,9 @@
     </div>
 </br>
 
-<a href="/gameSaves/<%= gameSave._id %>/edit">Edit Save</a>
+<div class="col-auto my-1">
+    <a href="/gameSaves/<%= gameSave._id %>/edit"><button class="btn btn-primary">Edit Save</button></a>
+
 
 <br>
 <h2>Comments</h2>
@@ -62,7 +65,7 @@
     <div> Date: <%= comment.createdAt %> </div>
     <div> <%= comment.content %> </div>
     <form id="delete-comment-form" action="/gameSaveComments/<%= comment._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
+        <button type="submit" class="btn btn-warning">X</button>
         </form>
 <% }) %>
 
@@ -71,11 +74,14 @@
 
 <form id="add-gameSave-comment" method="POST" action="/gameSaves/<%= gameSave._id %>/gameSaveComments">
     <textarea name="content"></textarea>
-    <input type="submit" value="Add Comment">
     </form>
-
+    <br>
+    <input type="submit" class="btn btn-success" value="Add Comment">
+    </form>
+    <br>
+    <br>
     <form action="/gameSaves/<%= gameSave._id %>?_method=DELETE" method="POST">
-        <button type="submit">DELETE GAMESAVE DATA</button>
+        <button type="submit" class="btn btn-danger">DELETE GAMESAVE DATA</button>
     </form>
 
 
