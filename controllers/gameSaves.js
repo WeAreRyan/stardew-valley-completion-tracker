@@ -71,7 +71,7 @@ function update(req, res) {
     req.body.skills = !!req.body.skills;
     req.body.stardrops = !!req.body.stardrops;
     req.body.recipes = !!req.body.recipes;
-    req.body.crafting = !!req.body.Crafting;
+    req.body.crafting = !!req.body.crafting;
     req.body.fish = !!req.body.fish;
     req.body.walnuts = !!req.body.walnuts;
 
@@ -153,7 +153,7 @@ function create(req, res) {
     req.body.skills = !!req.body.skills;
     req.body.stardrops = !!req.body.stardrops;
     req.body.recipes = !!req.body.recipes;
-    req.body.crafting = !!req.body.Crafting;
+    req.body.crafting = !!req.body.crafting;
     req.body.fish = !!req.body.fish;
     req.body.walnuts = !!req.body.walnuts;
     const gameSave = new GameSave(req.body);
