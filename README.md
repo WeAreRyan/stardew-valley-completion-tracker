@@ -9,7 +9,11 @@ Ryan Okamoto
 
 # Stardew Valley Completion Tracker
 <br>
-<a href="https://stardew-valley-tracker.herokuapp.com/"> Check it out here </a>
+
+## Links
+
+| Student | Project Name | <a href="https://trello.com/invite/b/9uLp0XXh/58db493fcb7bc46f4e88b91d72801b95/sei-stardew-valley-completion-tracker">Planning (Trello)</a> | GitHub | Hosted Site |
+|---|:---:|:---:|:---:|:---:|
 
 # Functionality
 <br>

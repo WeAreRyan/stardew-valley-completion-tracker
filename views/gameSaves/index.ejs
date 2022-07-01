@@ -5,31 +5,25 @@
     <% if(user && user._id.equals(gameSave.user)) { %>
       <div class="container bg-info">
         <div class="row">
-          <div class="col-sm-3"> Filename: </div>
-          <div class="col-sm-3">
+          <div class="col-sm-4"> Filename: </div>
+          <div class="col-sm-4">
             <%= gameSave.saveName %>
           </div>
         </div>
       </div>
       <div class="container bg-info">
         <div class="row">
-          <div class="col-sm-3"> Completion Path(Community/Joja): </div>
-          <div class="col-sm-3"></div>
-          <%= gameSave.completionPath %>
+          <div class="col-sm-4"> Completion Path(Community/Joja): </div>
+          <div class="col-sm-4">
+            <%= gameSave.completionPath %>
+          </div>
         </div>
-      </div>
       </div>
       <div class="container bg-info">
         <div class="row">
-          <a class="col-sm-3" href="/gameSaves/<%= gameSave.id %>">Save File Details</a>
+          <a class="col-sm-4" href="/gameSaves/<%= gameSave.id %>">Save File Details</a>
         </div>
       </div>
-
-
-
-
-
-
       <% } %>
         <% }) %>
           <br>
