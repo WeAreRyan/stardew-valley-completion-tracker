@@ -24,4 +24,6 @@ The primary challenge encountered while creating this webapp was and still is mo
 
 #Next Steps
 <br>
-Unfortunately due to time constraints and the amount of time spent rewriting the data models I was unable to implement the application as envisioned. In the future I will be adding addition schema for each of the 11 tasks in Stardew Valley to allow users to more thoroughly track smaller tasks within the main 11 goals. I would also like to add the ability to add and remove comments for each individual task. I will be adding this additional functionality to the top navigation bar as well. 
+Unfortunately due to time constraints and the amount of time spent rewriting the data models I was unable to implement the application as envisioned. In the future I will be adding addition schema for each of the 11 tasks in Stardew Valley to allow users to more thoroughly track smaller tasks within the 11 main goals of the game, these additional data points will be accessible via the sites top navigation bar. I would also like to add the ability to add and remove comments for each individual task. 
+<br>
+You can view the public Trello board tracking development progress <a href="https://trello.com/invite/b/9uLp0XXh/58db493fcb7bc46f4e88b91d72801b95/sei-stardew-valley-completion-tracker">here</a>
