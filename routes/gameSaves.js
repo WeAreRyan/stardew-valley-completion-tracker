@@ -13,6 +13,6 @@ router.post('/', gameSavesCtrl.create);
 
 router.put('/:id', gameSavesCtrl.update);
 
-router.delete('/:id', gameSavesCtrl.delete);
+router.delete('/:id', isLoggedIn, gameSavesCtrl.delete);
 
 module.exports = router;

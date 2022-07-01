@@ -6,44 +6,48 @@ module.exports = {
     new: newGameSave,
     show,
     delete: deletegameSave,
-    edit, 
-    update, 
+    edit,
+    update,
 }
 
 
 function index(req, res) {
-    if(!req.user) {
+    if (!req.user) {
         res.redirect('/auth/google')
     } else {
-    GameSave.find({}, function (err, gameSaves) {
-        res.render('gameSaves/index', { title: 'All Save Files', gameSaves });
-    })};
+        GameSave.find({}, function (err, gameSaves) {
+            res.render('gameSaves/index', { title: 'All Save Files', gameSaves });
+        })
+    };
 }
 
 function newGameSave(req, res) {
-    if(!req.user) {
+    if (!req.user) {
         res.redirect('/auth/google')
     } else {
-    res.render('gameSaves/new', { title: 'New Save File' });
-}}
+        res.render('gameSaves/new', { title: 'New Save File' });
+    }
+}
 
 function show(req, res) {
-    if(!req.user) {
+    if (!req.user) {
         res.redirect('/auth/google')
     } else {
-    gameSave = GameSave.findById(req.params.id, function (err, gameSave) {
-        res.render('gameSaves/show', { title: 'Save File Details', gameSave })
-        return gameSave;
-    })}
+        gameSave = GameSave.findById(req.params.id, function (err, gameSave) {
+            res.render('gameSaves/show', { title: 'Save File Details', gameSave })
+            return gameSave;
+        })
+    }
 }
 
 async function edit(req, res) {
-    if(!req.user) {
+    if (!req.user) {
         res.redirect('/auth/google')
     } else {
-    GameSave.findById(req.params.id, function(err, gameSave) {
-    res.render(`gameSaves/edit`, { title: 'Save File Details', gameSave })
-    })}
+        GameSave.findById(req.params.id, function (err, gameSave) {
+            res.render(`gameSaves/edit`, { title: 'Save File Details', gameSave })
+        })
+    }
 }
 
 
@@ -62,106 +66,59 @@ async function deletegameSave(req, res, next) {
 }
 
 function update(req, res) {
-    req.body.user = req.user._id;
-    req.body.community = !!req.body.community;
-    req.body.items = !!req.body.items;
-    req.body.buildings = !!req.body.buildings;
-    req.body.monsters = !!req.body.monsters;
-    req.body.friendship = !!req.body.friendship;
-    req.body.skills = !!req.body.skills;
-    req.body.stardrops = !!req.body.stardrops;
-    req.body.recipes = !!req.body.recipes;
-    req.body.crafting = !!req.body.crafting;
-    req.body.fish = !!req.body.fish;
-    req.body.walnuts = !!req.body.walnuts;
+    if (!req.user) {
+        res.redirect('/auth/google')
+    } else {
+        req.body.user = req.user._id;
+        req.body.community = !!req.body.community;
+        req.body.items = !!req.body.items;
+        req.body.buildings = !!req.body.buildings;
+        req.body.monsters = !!req.body.monsters;
+        req.body.friendship = !!req.body.friendship;
+        req.body.skills = !!req.body.skills;
+        req.body.stardrops = !!req.body.stardrops;
+        req.body.recipes = !!req.body.recipes;
+        req.body.crafting = !!req.body.crafting;
+        req.body.fish = !!req.body.fish;
+        req.body.walnuts = !!req.body.walnuts;
 
-    GameSave.findOneAndUpdate(
-      {_id: req.params.id},
-      req.body,
-      {new: true},
-      function(err, gameSave) {
-        if (err || !gameSave) return res.redirect('/gameSave');
-        res.redirect(`/gameSaves/${gameSave._id}/`);
-      }
-    );
-  }
-
-
-
-
-
-
-
-
-// function update(req, res) {
-//     req.body.user = req.user._id;
-//     req.body.community = !!req.body.community;
-//     req.body.items = !!req.body.items;
-//     req.body.buildings = !!req.body.buildings;
-//     req.body.monsters = !!req.body.monsters;
-//     req.body.friendship = !!req.body.friendship;
-//     req.body.skills = !!req.body.skills;
-//     req.body.stardrops = !!req.body.stardrops;
-//     req.body.recipes = !!req.body.recipes;
-//     req.body.crafting = !!req.body.Crafting;
-//     req.body.fish = !!req.body.fish;
-//     req.body.walnuts = !!req.body.walnuts;
-
-//     gameSave.findByIdAndUpdate({_id: req.params.id}, 
-//         req.body, 
-//         {new: true},
-        
-//         function(err, gameSave) {
-//         if (err || !gameSave) {
-//             console.log(err);
-//             return res.redirect('/gameSaves')
-//         }
-//         res.redirect(`gameSaves/${gameSave._id}`);
-//       }
-//     );
-//   }
-
-
-//   function update(req, res) {
-//     console.log(req.params.id);
-//     req.body.user = req.user._id;
-//     req.body.community = !!req.body.community;
-//     req.body.items = !!req.body.items;
-//     req.body.buildings = !!req.body.buildings;
-//     req.body.monsters = !!req.body.monsters;
-//     req.body.friendship = !!req.body.friendship;
-//     req.body.skills = !!req.body.skills;
-//     req.body.stardrops = !!req.body.stardrops;
-//     req.body.recipes = !!req.body.recipes;
-//     req.body.crafting = !!req.body.Crafting;
-//     req.body.fish = !!req.body.fish;
-//     req.body.walnuts = !!req.body.walnuts;
-//     gameSave.findByIdAndUpdate(req.params.id, function(err, gameSave) {
-//         console.log(gameSave)
-//     })
-// }
+        GameSave.findOneAndUpdate(
+            { _id: req.params.id },
+            req.body,
+            { new: true },
+            function (err, gameSave) {
+                if (err || !gameSave) return res.redirect('/gameSave');
+                res.redirect(`/gameSaves/${gameSave._id}/`);
+            }
+        )
+    };
+}
 
 
 
 function create(req, res) {
-    req.body.user = req.user._id;
-    req.body.community = !!req.body.community;
-    req.body.items = !!req.body.items;
-    req.body.buildings = !!req.body.buildings;
-    req.body.monsters = !!req.body.monsters;
-    req.body.friendship = !!req.body.friendship;
-    req.body.skills = !!req.body.skills;
-    req.body.stardrops = !!req.body.stardrops;
-    req.body.recipes = !!req.body.recipes;
-    req.body.crafting = !!req.body.crafting;
-    req.body.fish = !!req.body.fish;
-    req.body.walnuts = !!req.body.walnuts;
-    const gameSave = new GameSave(req.body);
-    gameSave.save(function (err) {
-        if (err) {
-            console.log(err)
-        }
-    })
+    if (!req.user) {
+        res.redirect('/auth/google')
+    } else {
+        req.body.user = req.user._id;
+        req.body.community = !!req.body.community;
+        req.body.items = !!req.body.items;
+        req.body.buildings = !!req.body.buildings;
+        req.body.monsters = !!req.body.monsters;
+        req.body.friendship = !!req.body.friendship;
+        req.body.skills = !!req.body.skills;
+        req.body.stardrops = !!req.body.stardrops;
+        req.body.recipes = !!req.body.recipes;
+        req.body.crafting = !!req.body.crafting;
+        req.body.fish = !!req.body.fish;
+        req.body.walnuts = !!req.body.walnuts;
+        const gameSave = new GameSave(req.body);
+        gameSave.save(function (err) {
+            if (err) {
+                console.log(err)
+            }
+        })
+    }
     res.redirect('/gameSaves')
 }
 

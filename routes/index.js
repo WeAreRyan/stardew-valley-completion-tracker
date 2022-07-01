@@ -3,7 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Stardew Valley Completion Tracker' });
 });
 
@@ -22,9 +22,9 @@ router.get('/oauth2callback', passport.authenticate(
   }
 ));
 
-router.get('/logout', function(req, res) {
-  req.logout(function(err) {
-    if(err) console.log(err)
+router.get('/logout', function (req, res) {
+  req.logout(function (err) {
+    if (err) console.log(err)
     res.redirect('/')
   })
 })

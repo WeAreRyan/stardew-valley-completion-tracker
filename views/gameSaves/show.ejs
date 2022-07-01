@@ -1,88 +1,119 @@
 <%- include('../partials/header') %>
-</br>
-<div class="container bg-info">
-    <div class="row">
-        <div class="col-sm-3">Save Name: </div>
-        <div class="col-sm-3"> <%= gameSave.saveName %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">Completion Path: </div>
-        <div class="col-sm-3"> <%= gameSave.completionPath %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">Community Upgrades: </div>
-        <div class="col-sm-3"> <%= gameSave.community ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All items sold: </div>
-        <div class="col-sm-3"> <%= gameSave.items ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Obelisks and Golden Clock Built: </div>
-        <div class="col-sm-3"> <%= gameSave.buildings ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">Monster Slayer Goals: </div>
-        <div class="col-sm-3"> <%= gameSave.monsters ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All characters affection maxed:</div>
-        <div class="col-sm-3"> <%= gameSave.friendship ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All skills at max: </div>
-        <div class="col-sm-3"> <%= gameSave.skills ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Stardrops Collected: </div>
-        <div class="col-sm-3"> <%= gameSave.stardrops ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Recipes Cooked: </div>
-        <div class="col-sm-3"> <%= gameSave.recipes ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Crafting items created: </div>
-        <div class="col-sm-3"> <%= gameSave.crafting ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Fish caught: </div>
-        <div class="col-sm-3"> <%= gameSave.fish ? 'Complete' : 'In Progress' %></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-3">All Golden Walnuts collected: </div>
-        <div class="col-sm-3"> <%= gameSave.walnuts ? 'Complete' : 'In Progress' %></div>
-    </div>
-</br>
+    </br>
+    <div class="container bg-info">
+        <div class="row">
+            <div class="col-sm-3">Save Name: </div>
+            <div class="col-sm-3">
+                <%= gameSave.saveName %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Completion Path: </div>
+            <div class="col-sm-3">
+                <%= gameSave.completionPath %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Community Upgrades: </div>
+            <div class="col-sm-3">
+                <%= gameSave.community ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All items sold: </div>
+            <div class="col-sm-3">
+                <%= gameSave.items ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Obelisks and Golden Clock Built: </div>
+            <div class="col-sm-3">
+                <%= gameSave.buildings ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Monster Slayer Goals: </div>
+            <div class="col-sm-3">
+                <%= gameSave.monsters ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All characters affection maxed:</div>
+            <div class="col-sm-3">
+                <%= gameSave.friendship ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All skills at max: </div>
+            <div class="col-sm-3">
+                <%= gameSave.skills ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Stardrops Collected: </div>
+            <div class="col-sm-3">
+                <%= gameSave.stardrops ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Recipes Cooked: </div>
+            <div class="col-sm-3">
+                <%= gameSave.recipes ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Crafting items created: </div>
+            <div class="col-sm-3">
+                <%= gameSave.crafting ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Fish caught: </div>
+            <div class="col-sm-3">
+                <%= gameSave.fish ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">All Golden Walnuts collected: </div>
+            <div class="col-sm-3">
+                <%= gameSave.walnuts ? 'Complete' : 'In Progress' %>
+            </div>
+        </div>
+        </br>
 
-<div class="col-auto my-1">
-    <a href="/gameSaves/<%= gameSave._id %>/edit"><button class="btn btn-primary">Edit Save</button></a>
+        <div class="col-auto my-1">
+            <a href="/gameSaves/<%= gameSave._id %>/edit"><button class="btn btn-primary">Edit Save</button></a>
 
 
-<br>
-<h2>Comments</h2>
-<% gameSave.gameSaveComments.forEach(function(comment) { %>
-    <div> Date: <%= comment.createdAt %> </div>
-    <div> <%= comment.content %> </div>
-    <form id="delete-comment-form" action="/gameSaveComments/<%= comment._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-warning">X</button>
-        </form>
-<% }) %>
+            <br>
+            <h2>Comments</h2>
+            <% gameSave.gameSaveComments.forEach(function(comment) { %>
+                <div> Date: <%= comment.createdAt %>
+                </div>
+                <div>
+                    <%= comment.content %>
+                </div>
+                <form id="delete-comment-form" action="/gameSaveComments/<%= comment._id %>?_method=DELETE"
+                    method="POST">
+                    <button type="submit" class="btn btn-warning">X</button>
+                </form>
+                <% }) %>
 
 
 
 
-<form id="add-gameSave-comment" method="POST" action="/gameSaves/<%= gameSave._id %>/gameSaveComments">
-    <textarea name="content"></textarea>
-    <br>
-    <button type="submit" class="btn btn-success" value="Add Comment">Add Comment</button>
-    </form>
-    <br>
-    <br>
-    <form action="/gameSaves/<%= gameSave._id %>?_method=DELETE" method="POST">
-        <button type="submit" class="btn btn-danger">DELETE GAMESAVE DATA</button>
-    </form>
-    <br>
+                    <form id="add-gameSave-comment" method="POST"
+                        action="/gameSaves/<%= gameSave._id %>/gameSaveComments">
+                        <textarea name="content"></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-success" value="Add Comment">Add Comment</button>
+                    </form>
+                    <br>
+                    <br>
+                    <form action="/gameSaves/<%= gameSave._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn btn-danger">DELETE GAMESAVE DATA</button>
+                    </form>
+                    <br>
 
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

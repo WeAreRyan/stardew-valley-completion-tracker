@@ -4,10 +4,10 @@ const Schema = mongoose.Schema
 const gameSaveCommentSchema = new Schema({
     content: {
         type: String, required: true
-    }, 
+    },
     user: {
         type: Schema.Types.ObjectId, ref: 'User', required: true
-    }, 
+    },
     userName: String,
     userAvatar: String,
 }, {
@@ -17,30 +17,27 @@ const gameSaveCommentSchema = new Schema({
 const saveBuildingSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId, ref: 'User', required: true
-    }, 
+    },
     earthObelisk: {
         type: Boolean
-    }, 
+    },
     waterObelisk: {
         type: Boolean
-    }, 
+    },
     desertObelisk: {
         type: Boolean
-    }, 
+    },
     islandObelisk: {
         type: Boolean
-    }, 
+    },
     goldClock: {
         type: Boolean
-    }, 
+    },
     userName: String,
     userAvatar: String,
 }, {
     timestamps: true
 });
-
-
-
 
 const gameSaveSchema = new Schema({
     user: {
@@ -50,19 +47,19 @@ const gameSaveSchema = new Schema({
         type: String, required: true
     },
     completionPath: {
-        type: String, 
-        enum: ['Community', "Joja"], 
+        type: String,
+        enum: ['Community', "Joja"],
         required: true
-    }, 
+    },
     community: {
         type: Boolean
-    }, 
+    },
     items: {
         type: Boolean
-    }, 
+    },
     buildings: {
         type: Boolean
-    }, 
+    },
     monsters: {
         type: Boolean
     },
@@ -71,24 +68,24 @@ const gameSaveSchema = new Schema({
     },
     skills: {
         type: Boolean
-    }, 
+    },
     stardrops: {
         type: Boolean
     },
     recipes: {
         type: Boolean
-    }, 
+    },
     crafting: {
-        type: Boolean, 
-    }, 
+        type: Boolean,
+    },
     fish: {
         type: Boolean
-    }, 
+    },
     walnuts: {
         type: Boolean
-    }, 
-    gameSaveComments: [gameSaveCommentSchema], 
-    saveBuildings: [saveBuildingSchema], 
+    },
+    gameSaveComments: [gameSaveCommentSchema],
+    saveBuildings: [saveBuildingSchema],
 })
 
 module.exports = mongoose.model('GameSave', gameSaveSchema)
