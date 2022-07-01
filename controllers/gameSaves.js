@@ -50,11 +50,13 @@ async function edit(req, res) {
 async function deletegameSave(req, res, next) {
     try {
         const gameSave = await GameSave.findOne({ 'gameSaves._id': req.params.id, 'gameSaves.user': req })
-        if (!gameSave) return res.redirect('/gameSaves/')
+        if (!gameSave) return res.redirect(`/gameSaves/`)
         gameSave.remove(req.params.id)
         await gameSave.save()
-        res.redirect('/gameSaves/')
+        res.redirect(`/gameSaves/`)
     } catch (err) {
+        console.log(err)
+        res.redirect(`/gameSaves/`)
         return next(err)
     }
 }
