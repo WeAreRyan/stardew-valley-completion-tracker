@@ -1,8 +1,6 @@
 # Project1-Solitaire
 HTML, CSS, JS, Express, MongoDB, Mongoose, 
 
-Ryan Okamoto
-
 <br>
 
 <img src="https://i.imgur.com/JDGRCjP.png">
@@ -12,8 +10,8 @@ Ryan Okamoto
 
 ## Links
 
-| Student | Project Name | <a href="https://trello.com/invite/b/9uLp0XXh/58db493fcb7bc46f4e88b91d72801b95/sei-stardew-valley-completion-tracker">Planning (Trello)</a> | GitHub | Hosted Site |
-|---|:---:|:---:|:---:|:---:|
+| Ryan Okamoto | Stardew Valley Completion Tracker | <a href="https://trello.com/invite/b/9uLp0XXh/58db493fcb7bc46f4e88b91d72801b95/sei-stardew-valley-completion-tracker">Planning (Trello)</a> | <a href="https://stardew-valley-tracker.herokuapp.com/">Hosted Site</a> |
+|---|:---:|:---:|:---:|
 
 # Functionality
 <br>
