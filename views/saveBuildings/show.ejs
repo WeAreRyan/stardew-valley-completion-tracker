@@ -1,5 +1,23 @@
 <%- include('../partials/header') %>
 
 saveBuildings show page
+<div class="col-sm-3">
+    <%= gameSave.saveBuildings.earthObelisk ? 'Complete' : 'In Progress' %>
+</div>
+
+<div class="col-auto my-1">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+  <div id="new-gameSave-form">
+    <form id="add-save-form" method="POST" action="/gameSaves/<%= gameSave._id %>/updatebuildings?_method=PUT">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="buildings">
+          <label class="form-check-label" for="buildings">Obelisks & Golden Clock built</label>
+        </div>
+              <div class="col-auto my-1">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
 
 <%- include('../partials/footer') %>

@@ -60,6 +60,7 @@ const gameSaveSchema = new Schema({
     buildings: {
         type: Boolean
     },
+    saveBuildings: [saveBuildingSchema],
     monsters: {
         type: Boolean
     },
@@ -85,7 +86,6 @@ const gameSaveSchema = new Schema({
         type: Boolean
     },
     gameSaveComments: [gameSaveCommentSchema],
-    saveBuildings: [saveBuildingSchema],
 })
 
 module.exports = mongoose.model('GameSave', gameSaveSchema)

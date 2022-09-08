@@ -8,8 +8,36 @@ module.exports = {
     delete: deletegameSave,
     edit,
     update,
+    buildings,
+    updateBuildings,
 }
 
+
+function buildings(req, res) {
+    console.log(";LAKSDJFOISDDJF")
+        if (!req.user) {
+            res.redirect('/auth/google')
+        } else {
+            gameSave = GameSave.findById(req.params.id, function (err, gameSave) {
+                res.render('saveBuildings/show', { title: 'Save Building Details', gameSave })
+                console.log(gameSave)
+                return gameSave;
+            })
+        }
+    }
+
+async function updateBuildings(req, res) {
+    try {
+        console.log(req.params.id)
+        const save = await GameSave.findById(req.params.id);
+        console.log(save)
+        Object.assign(save, req.body);
+        save.save()
+        res.send({ data: save })
+    } catch {
+        res.status(404).send({ error: "Save data not found"})
+    }
+}
 
 function index(req, res) {
     if (!req.user) {

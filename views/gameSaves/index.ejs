@@ -1,9 +1,39 @@
 <%- include('../partials/header') %>
   <br>
 
+<h1><%= user.name %>'s GameSaves</h1>
+<div class="container">
+  <div class="row">
   <% gameSaves.forEach(function(gameSave) { %>
     <% if(user && user._id.equals(gameSave.user)) { %>
-      <div class="container bg-info">
+      
+        <div class="col-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Save Name: <%= gameSave.saveName %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">Completion Path: <%= gameSave.completionPath %></h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="/gameSaves/<%= gameSave.id %>" class="card-link">Details</a>
+            </div>
+          </div>
+        </div>
+
+
+      <% } %>
+        <% }) %>
+      </div>
+      </div>
+
+      <a href="/gamesaves/new"><button class="btn btn-primary">Add New Save File</button></a>
+
+
+
+
+
+
+
+
+      <!-- <div class="container bg-info">
         <div class="row">
           <div class="col-sm-4"> Filename: </div>
           <div class="col-sm-4">
@@ -24,13 +54,12 @@
           <a class="col-sm-4" href="/gameSaves/<%= gameSave.id %>">Save File Details</a>
         </div>
       </div>
-      <% } %>
-        <% }) %>
+
           <br>
           <div class="container">
             <div class="col-auto my-1">
               <a href="/gamesaves/new"><button class="btn btn-primary">Add New Save File</button></a>
             </div>
-          </div>
+          </div> -->
 
           <%- include('../partials/footer') %>
