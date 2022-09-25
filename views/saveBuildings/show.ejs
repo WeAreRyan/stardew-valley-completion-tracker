@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
 
-saveBuildings show page
+<div class="container shadow-lg rounded p-2 mb-5" style="background-color: rgb(92, 232, 240, 0.7);">
+  <h1 class="header">Buildings Status for <%= gameSave.saveName %> </h1>
 <div class="col-sm-3">
-    <%= gameSave.saveBuildings.earthObelisk ? 'Complete' : 'In Progress' %>
+  <div>Earth Obelisk: <%= gameSave.saveBuildings.earthObelisk ? 'Complete' : 'In Progress' %></div>
+  <div>Water Obelisk: <%= gameSave.saveBuildings.waterObelisk ? 'Complete' : 'In Progress' %></div>
+    <div>Desert Obelisk: <%= gameSave.saveBuildings.desertObelisk ? 'Complete' : 'In Progress' %></div>
+    <div>Island Obelisk: <%= gameSave.saveBuildings.islandObelisk ? 'Complete' : 'In Progress' %></div>
+    <div>Golden Clock: <%= gameSave.saveBuildings.goldClock ? 'Complete' : 'In Progress' %></div>
 </div>
 
-<div class="col-auto my-1">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
 
   <div id="new-gameSave-form">
     <form id="add-save-form" method="POST" action="/gameSaves/<%= gameSave._id %>/updatebuildings?_method=PUT">

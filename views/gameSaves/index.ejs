@@ -1,65 +1,78 @@
 <%- include('../partials/header') %>
-  <br>
+<br />
 
-<h1><%= user.name %>'s GameSaves</h1>
-<div class="container">
+<div
+  class="container shadow-lg rounded p-2 mb-5"
+  style="background-color: rgb(92, 232, 240, 0.7)"
+>
+  <h1 class="header"><%= user.name %>'s GameSaves</h1>
   <div class="row">
-  <% gameSaves.forEach(function(gameSave) { %>
-    <% if(user && user._id.equals(gameSave.user)) { %>
-      
-        <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Save Name: <%= gameSave.saveName %></h5>
-              <h6 class="card-subtitle mb-2 text-muted">Completion Path: <%= gameSave.completionPath %></h6>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="/gameSaves/<%= gameSave.id %>" class="card-link">Details</a>
-            </div>
-          </div>
+    <% gameSaves.forEach(function(gameSave) { %> <% if(user &&
+    user._id.equals(gameSave.user)) { %>
+
+    <div class="col-4">
+      <div class="card shadow-lg m-2" style="width: 25rem">
+        <div class="card-body">
+          <h5 class="card-title">Save Name: <%= gameSave.saveName %></h5>
+          <h6 class="card-subtitle">
+            Completion Path: <%= gameSave.completionPath %>
+          </h6>
+          <% if(gameSave.community) { %>
+          <p>Community upgrades: Complete</p>
+          <% } else { %>
+          <p>Community upgrades: In Progress</p>
+          <% } %> <% if(gameSave.items) { %>
+          <p>All Items Sold: Complete</p>
+          <% } else { %>
+          <p>All Items Sold: In Progress</p>
+          <% } %> <% if(gameSave.buildings) { %>
+          <p>Obelisks & Golden Clock built: Complete</p>
+          <% } else { %>
+          <p>Obelisks & Golden Clock built: In Progress</p>
+          <% } %> <% if(gameSave.monsters) { %>
+          <p>Monster Eradication Goals: Complete</p>
+          <% } else { %>
+          <p>Monster Eradication Goals: In Progress</p>
+          <% } %> <% if(gameSave.friendship) { %>
+          <p>Maximum Friendship: Complete</p>
+          <% } else { %>
+          <p>Maximum Friendship: In Progress</p>
+          <% } %> <% if(gameSave.skills) { %>
+          <p>Maxed All Skills: Complete</p>
+          <% } else { %>
+          <p>Maxed All Skills: In Progress</p>
+          <% } %> <% if(gameSave.stardrops) { %>
+          <p>All Stardrops Collected: Complete</p>
+          <% } else { %>
+          <p>All Stardrops Collected: In Progress</p>
+          <% } %> <% if(gameSave.recipes) { %>
+          <p>All Recipes Cooked: Complete</p>
+          <% } else { %>
+          <p>All Recipes Cooked: In Progress</p>
+          <% } %> <% if(gameSave.crafting) { %>
+          <p>All Items Crafted: Complete</p>
+          <% } else { %>
+          <p>All Items Crafted: In Progress</p>
+          <% } %> <% if(gameSave.fish) { %>
+          <p>All Fish Caught: Complete</p>
+          <% } else { %>
+          <p>All Fish Caught: In Progress</p>
+          <% } %> <% if(gameSave.walnuts) { %>
+          <p>Golden Walnuts Collected: Complete</p>
+          <% } else { %>
+          <p>Golden Walnuts Collected: In Progress</p>
+          <% } %>
+          <a href="/gameSaves/<%= gameSave.id %>" class="card-link">Details</a>
         </div>
-
-
-      <% } %>
-        <% }) %>
       </div>
-      </div>
+    </div>
 
-      <a href="/gamesaves/new"><button class="btn btn-primary">Add New Save File</button></a>
+    <% } %> <% }) %>
+  </div>
 
+  <a href="/gamesaves/new"
+    ><button class="btn btn-primary">Add New GameSave</button></a
+  >
+</div>
 
-
-
-
-
-
-
-      <!-- <div class="container bg-info">
-        <div class="row">
-          <div class="col-sm-4"> Filename: </div>
-          <div class="col-sm-4">
-            <%= gameSave.saveName %>
-          </div>
-        </div>
-      </div>
-      <div class="container bg-info">
-        <div class="row">
-          <div class="col-sm-4"> Completion Path(Community/Joja): </div>
-          <div class="col-sm-4">
-            <%= gameSave.completionPath %>
-          </div>
-        </div>
-      </div>
-      <div class="container bg-info">
-        <div class="row">
-          <a class="col-sm-4" href="/gameSaves/<%= gameSave.id %>">Save File Details</a>
-        </div>
-      </div>
-
-          <br>
-          <div class="container">
-            <div class="col-auto my-1">
-              <a href="/gamesaves/new"><button class="btn btn-primary">Add New Save File</button></a>
-            </div>
-          </div> -->
-
-          <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

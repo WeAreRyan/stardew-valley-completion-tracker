@@ -1,11 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+height: 100vh; 
 }
 
-a {
-  color: #00B7FF;
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  text-align: center;
+  padding-top: 60px;
 }
+
+/* a {
+  color: #00B7FF;
+} */
 
 .login {
   display: flex;
@@ -18,8 +24,9 @@ a {
   height: 30px;
 }
 
-html {
-  background-color: #b3ffff;
+.header {
+  text-align: center;
+  padding: 1rem;
 }
 
 #new-gameSave-form {
